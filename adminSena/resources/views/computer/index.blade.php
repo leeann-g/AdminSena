@@ -1,14 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-        <h1>
-        Areas Guardadas
+    <h1>
+        Lista de Computadores:
     </h1>
-        <style>
+
+    <style>
         table{
             border: solid;
             position: relative;
-            left: 180px;
+            left: 50px;
         }
         td{
             border: solid;
@@ -29,21 +30,29 @@
                 <th>
                     N°
                 </th>
+                <th>
+                    Marca
+                </th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($areas as $area)
+            @foreach ($computers as $computer)
             <td>
-                {{$area->id}}
+                {{$computer->id}}
             </td>
             <td>
-                {{$area->name}}
+                {{$computer->number}}
             </td>
+            <td>
+                {{$computer->brand}}
+            </td>
+
             @endforeach
         </tbody>
     </table>
+
+
     <br>
     <br>
     <a href="{{ route('inicio')}}">Volver al inicio</a>
 @endsection
-

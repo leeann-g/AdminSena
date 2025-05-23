@@ -1,15 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>
+@extends('layouts.app')
+
+@section('content')
+        <h1>
         Lista de Centros de formación
     </h1>
-    {{$training}}
-</body>
-</html>
+
+        <style>
+        table{
+            border: solid;
+            position: relative;
+            left: 90px;
+        }
+        td{
+            border: solid;
+            text-align: left;
+            
+        }
+        th{
+            border: solid;
+            padding: 5px 10px 5px 0px;
+        }
+    </style>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Ubi
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($training as $t)
+            <td>
+                {{$t->id}}
+            </td>
+            <td>
+                {{$t->name}}
+            </td>
+            <td>
+                {{$t->location}}
+            </td>
+
+            @endforeach
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <a href="{{ route('inicio')}}">Volver al inicio</a>
+@endsection
+
